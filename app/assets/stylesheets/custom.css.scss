@@ -1,0 +1,150 @@
+/* mixins, variables, etc. */
+
+$gray-medium-light: #eaeaea;
+
+@mixin box_sizing {
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
+}
+
+/* miscellaneous */
+body {
+  background: -webkit-linear-gradient(90deg, #F1F2B5 10%, #135058 90%); /* Chrome 10+, Saf5.1+ */
+  background:    -moz-linear-gradient(90deg, #F1F2B5 10%, #135058 90%); /* FF3.6+ */
+  background:     -ms-linear-gradient(90deg, #F1F2B5 10%, #135058 90%); /* IE10 */
+  background:      -o-linear-gradient(90deg, #F1F2B5 10%, #135058 90%); /* Opera 11.10+ */
+  background:         linear-gradient(90deg, #F1F2B5 10%, #135058 90%); /* W3C */ 
+  font-family: 'PT Sans', sans-serif;      
+}
+
+header {
+  height: 3em;
+  margin-bottom:2em;
+
+  .logo-container {
+    margin: 0em auto;
+    text-align: center;
+
+    .logo {
+      font-family: 'Pacifico';
+      font-size: 220%;
+      color: white;
+      display:inline-block;
+      overflow: hidden;
+    }
+  
+    .image {
+      display: inline-block;
+
+      img {
+        position: relative;
+        top: 0.3em;
+        left: 0.3em;
+      }
+    }
+  }
+
+
+
+}
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
+}
+
+
+/* Search Field */
+
+.flights {
+  text-align: center;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.flights-li {
+  text-align: left;
+}
+
+.search-container {
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.5);
+  height: 6em;
+  width: 100%;
+  margin: auto;
+
+  
+  .form-container {
+    margin: auto;
+    text-align: center;
+    height: 3em;
+    position: absolute;
+
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+    
+  form select {
+    background-color: white;
+    height: 4em;
+    border: 0;
+    padding: 1em;
+  }
+
+  form label {
+    margin: 0 0.5em;
+    text-transform: uppercase;
+    color: #135058;
+  }
+
+  form .button {
+    box-shadow: none;
+    border: none;
+    background-color: #135058;
+    color: white;
+    width: 10em;
+    height: 4em;
+  }
+
+  form .button:hover {
+    transition: all 300ms ease;
+    box-shadow: none;
+    border: none;
+    background-color: #F1F2B5;
+    color: black;
+  }
+}
+
+.results-table {
+  margin: 2em 0;
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+
+  tr th {
+    border-bottom: 0.5pt solid white;
+    padding: 1em 0em;
+  }
+
+  tr td {
+    padding: 1em 0em;
+  }
+}
+
+
+.results-container {
+  text-align: left;
+  width: 50%;
+  margin: 0 auto;
+  color: white;
+
+  p {
+    margin: 2em 0;
+    text-align: center;
+  }
+}

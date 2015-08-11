@@ -1,0 +1,39 @@
+
+<%= form_tag new_booking_path, method: "get" do %>
+  <% if @flights.any? %>
+
+  <div class="results-container">
+    <table class="results-table">
+    <thead>
+      <tr>
+        <th>Flight</th>
+        <th>Departure</th>
+        <th>Arrival</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Select flight</th>
+      </tr>  
+    </thead>
+
+    <% @flights.each do |flight| %>
+      <tbody>
+        <tr>
+          <td><%=flight.id %></td>
+          <td><%=flight.from_airport.name%></td>
+          <td><%=flight.to_airport.name%></td>
+          <td><%=flight.start_datetime.strftime("%d.%m.%Y")%></td>
+          <td><%=flight.start_datetime.strftime("%I:%M %p")%></td>
+          <td><%=radio_button_tag(:flight_id, flight.id) %></td>
+        </tr>
+      </tbody>
+    <% end %>  
+    </table>
+    <%= submit_tag "Select flight", :name => nil, class: "button" %>
+    <%= hidden_field_tag :passengers, params[:passengers] %>
+  </div>
+
+  <% else %>
+    <p> Sorry, but there are no flights with these search parameters </p>
+  <% end %>
+<% end %>
+

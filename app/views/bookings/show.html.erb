@@ -1,0 +1,29 @@
+<div class="results-container">
+  <% flash.each do |key, value| %>
+    <%= content_tag :div, value, class: "flash #{key}"%>
+  <% end %>
+
+  <table class="results-table">
+    <tr>
+      <th>Flight</th>
+      <th>Departure</th>
+      <th>Arrival</th>
+      <th>Date</th>
+      <th>Time</th>  
+    </tr>
+	  <tr>
+      <td><%=@booking.flight.id %></td>
+	    <td><%=@booking.flight.from_airport.name%></td>
+	    <td><%=@booking.flight.to_airport.name %></td>
+	    <td><%=@booking.flight.start_datetime.strftime("%d.%m.%Y")%></td>
+	    <td><%=@booking.flight.start_datetime.strftime("%I:%M %p")%></td>  
+	  </tr>
+  </table>
+
+  <p>Passengers</p>
+  <% @booking.passengers.each do |passenger| %>
+    <ul>
+      <li><%= "#{passenger.name} | #{passenger.email}" %></li>
+    </ul>
+  <% end %>
+</div>

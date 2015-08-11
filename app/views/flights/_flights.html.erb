@@ -1,0 +1,10 @@
+<div class="flights">
+  <h1>All flights from <%= Airport.first.name %></h1>
+  <div class="flights-li">
+    <% Airport.first.departing_flights.each do |destination| %>
+      <ul>
+        <li> <%= destination.to_airport.name %> | <%= destination.date_formatted %></li>
+      </ul>
+    <% end %>
+  </div>
+</div>

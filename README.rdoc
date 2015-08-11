@@ -3,5 +3,3 @@ This is a flight booking app.
 You can choose FROM airports, TO airports and fill in passenger number and so on. 
 
 It is an exercise for practising advanced forms and associations. 
-
-CHANGE

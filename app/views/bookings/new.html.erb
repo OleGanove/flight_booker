@@ -1,0 +1,40 @@
+<div class="results-container">
+  <h1>Your chosen flight:</h1>
+    <table class="results-table">
+        <tr>
+          <th>Flight</th>
+          <th>Departure</th>
+          <th>Arrival</th>
+          <th>Date</th>
+          <th>Time</th>
+        </tr>
+	      <tr>
+          <td><%=@flight.id %></td>
+	        <td><%=@flight.from_airport.name%></td>
+	        <td><%=@flight.to_airport.name %></td>
+	        <td><%=@flight.start_datetime.strftime("%d.%m.%Y")%></td>
+	        <td><%=@flight.start_datetime.strftime("%I:%M %p")%></td>  
+	      </tr>
+    </table>
+
+    <h1>Enter personal information here:</h1>
+    <div class="form-container">
+      <%= form_for @booking do |f| %>
+        <%= f.fields_for :passengers do |passenger| %>
+
+          <p>
+            <%= passenger.label(:name, "Name:") %>
+            <%= passenger.text_field(:name) %>
+          </p>
+
+          <p>
+            <%= passenger.label(:email, "Email:") %>
+            <%= passenger.text_field(:email) %>
+          </p>
+        <% end %>
+        
+        <%= f.hidden_field :flight_id %>
+        <%= f.submit %>
+      <% end %>
+    </div>
+</div>

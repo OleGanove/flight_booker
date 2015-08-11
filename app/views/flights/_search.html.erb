@@ -1,0 +1,20 @@
+<div class="search-container">
+  <div class="form-container">
+  <%= form_tag(flights_path, method: "get") do %>
+
+    <%= label_tag(:from_airport_id, "From:") %>
+    <%= select_tag(:from_airport_id, options_for_select(@airports, @prev_from_airport )) %>
+
+    <%= label_tag(:to_airport_id, "To:") %>
+    <%= select_tag(:to_airport_id, options_for_select(@airports, @prev_to_airport )) %>
+
+    <%= label_tag(:start_datetime, "Date:") %>
+    <%= select_tag(:start_datetime, options_for_select(@dates, @prev_date)) %>
+
+    <%= label_tag(:passengers, "Passengers:") %>
+    <%= select_tag(:passengers, options_for_select(@passengers)) %>
+
+    <%= submit_tag "Search", :name => nil, class: "button" %>
+  <% end %>
+  </div>
+</div>
